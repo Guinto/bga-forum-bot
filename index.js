@@ -1,7 +1,6 @@
 const request = require('request');
 require('dotenv').config()
 
-
 const client_id = process.env.CLIENT_ID
 const access_token = process.env.ACCESS_TOKEN
 
