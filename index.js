@@ -5,15 +5,6 @@ require('dotenv').config()
 const client_id = process.env.CLIENT_ID
 const access_token = process.env.ACCESS_TOKEN
 
-/*
-{
-"access_token": "",
-"token_type": "Bearer",
-"expires_in": 3599,
-"refresh_token": "17fc3120da54abb5d546b328045cb71f018b4a1b"
-}
-*/
-
 function createPost(callback) {
     var postData = {}
 
