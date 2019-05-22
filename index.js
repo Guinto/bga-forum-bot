@@ -13,7 +13,7 @@ function createPost(callback) {
             post_title: "Let's talk strategy",
             post_description: "This is an automated weekly post to talk about strategy. Did you learn something new, see a good video, or want to up your game?"
         }
-        callback(postData)
+        //callback(postData)
     }
     else if (today.getDay() == 1) { // Monday: What did you play?
         postData = {
@@ -27,7 +27,7 @@ function createPost(callback) {
             post_title: "Two Player Tuesday",
             post_description: "This is an automated weekly post to talk about the two player games. Do you have a gameplay story, a favorite game, or want recommendations?"
         }
-        callback(postData)
+        //callback(postData)
     }
     else if (today.getDay() == 3) { // Wednesday: Game Recommendations
         postData = {
@@ -52,7 +52,7 @@ function createPost(callback) {
                 post_description: "This is an automated weekly post to talk about the game of the week. It chooses a random game from the top 100 on the popularity charts to hopefully get the most discussion from people who've played it. What do you think about " + game.name + ". Do you like it, own it, play it all the time, dislike, best strategies, or anything related to it?",
                 game_list: game.id
             }
-            callback(postData)
+            //callback(postData)
         })
     }
     else if (today.getDay() == 5) { // Friday: Kickstarter Discussion
@@ -98,7 +98,7 @@ function createPost(callback) {
             post_title: "Best Video, Article, or Podcast",
             post_description: "This is an automated weekly post to talk about the best content you saw this week. It can be video, article, podcast, or any other form of content."
         }
-        callback(postData)
+        //callback(postData)
     }
 }
 
