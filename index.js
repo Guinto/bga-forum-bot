@@ -37,23 +37,11 @@ function createPost(callback) {
         callback(postData)
     }
     else if (today.getDay() == 4) { // Thursday: Game of the Week
-        var options = {
-            url: 'https://www.boardgameatlas.com/api/search?name=&limit=100&client_id=' + client_id,
+        postData = {
+            post_title: "Game Trade Thursday",
+            post_description: "Comment with a list of games your want and/or a list of games you would be open to trade away. If you're interested in starting a trade, either reply or DM to figure out the details. Make sure to update the comment after the deal is done."
         }
-        
-        request(options, function (error, response, body) {
-            if (error) console.log(error)
-
-            var json = JSON.parse(body)
-            var game = json.games[Math.floor(Math.random() * 100)];
-
-            postData = {
-                post_title: "Game of the Week (" + game.name + ")",
-                post_description: "This is an automated weekly post to talk about the game of the week. It chooses a random game from the top 100 on the popularity charts to hopefully get the most discussion from people who've played it. What do you think about " + game.name + ". Do you like it, own it, play it all the time, dislike, best strategies, or anything related to it?",
-                game_list: game.id
-            }
-            //callback(postData)
-        })
+        callback(postData)
     }
     else if (today.getDay() == 5) { // Friday: Kickstarter Discussion
         var options = {
