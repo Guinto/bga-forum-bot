@@ -36,10 +36,10 @@ function createPost(callback) {
         }
         callback(postData)
     }
-    else if (today.getDay() == 4) { // Thursday: Game of the Week
+    else if (today.getDay() == 4) { // Thursday: Game Trade
         postData = {
             post_title: "Game Trade Thursday",
-            post_description: "Comment with a list of games your want and/or a list of games you would be open to trade away. If you're interested in starting a trade, either reply or DM to figure out the details. Make sure to update the comment after the deal is done."
+            post_description: "Comment with a list of games your want and/or a list of games you would be open to trade away and add in your location like City/State so anyone interested in a local swap can do that. If you're interested in starting a trade, either reply or DM to figure out the details. Make sure to update the comment after the deal is done."
         }
         callback(postData)
     }
