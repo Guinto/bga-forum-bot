@@ -74,8 +74,8 @@ function createPost(callback) {
             gameListHtml += '</ul>'
             
             postData = {
-                post_title: "Kickstarter Ending (" + todayString + ' - ' + weekAwayString + ")",
-                post_description: "<p>This is an automated weekly post to talk about the games that came out on kickstarter this past week.</p>" + gameListHtml,
+                post_title: "Kickstarter Last Chance!",
+                post_description: "<p>This is an automated weekly post to talk about the games that ending soon.</p>" + gameListHtml,
                 game_list: finalWeekList.map(e => e.id).join(',')
             }
             callback(postData)
