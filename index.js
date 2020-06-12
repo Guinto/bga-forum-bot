@@ -45,20 +45,17 @@ function createPost(callback) {
     }
     else if (today.getDay() == 5) { // Friday: Kickstarter Discussion
         var options = {
-            url: 'https://www.boardgameatlas.com/api/search?kickstarter=true&limit=100&order_by=deadline&client_id=' + client_id,
+            url: 'https://www.boardgameatlas.com/api/search?kickstarter=true&limit=10&order_by=percent_funded&gt_goal=5000&client_id=' + client_id,
         }
         
         request(options, function (error, response, body) {
             var json = JSON.parse(body)
 
-            var today = new Date()
             var weekAway = new Date()
             weekAway.setDate(weekAway.getDate() + 7)
-            var todayString = (today.getMonth() + 1) + "/" + today.getDate()
-            var weekAwayString = (weekAway.getMonth() + 1) + "/" + weekAway.getDate()
 
             var finalWeekList = json.games.filter(e => new Date(e.kickstarter_deadline) < weekAway).sort(function(a, b) {
-                if (b.kickstarter_goal < 5000) return -1
+                if (b.kickstarter_goal < 5000) return 1
                 return b.kickstarter_percent - a.kickstarter_percent
             })
 
@@ -74,8 +71,8 @@ function createPost(callback) {
             gameListHtml += '</ul>'
             
             postData = {
-                post_title: "Kickstarter Last Chance!",
-                post_description: "<p>This is an automated weekly post to talk about the games that ending soon.</p>" + gameListHtml,
+                post_title: "Top 10 Kickstarters Ending Soon!",
+                post_description: "<p>This is an automated weekly post to talk about the games that are ending soon.</p>" + gameListHtml,
                 game_list: finalWeekList.map(e => e.id).join(',')
             }
             callback(postData)
