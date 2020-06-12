@@ -63,7 +63,7 @@ function createPost(callback) {
             
             finalWeekList.map(e => {
                 var html = '<li>'
-                html += '<a href="/search/game/' + e.id + '">' + e.name + '</a> ' + e.kickstarter_percent.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '% of $' + e.kickstarter_goal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                html += '<a href="/search/game/' + e.id + '">' + e.name + '</a> $' + e.kickstarter_pledge.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' / $' + e.kickstarter_goal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                 html += '</li>'
                 gameListHtml += html
             })
