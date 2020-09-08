@@ -17,7 +17,7 @@ function createPost(callback) {
     }
     else if (today.getDay() == 1) { // Monday: What did you play?
         postData = {
-            post_title: "What did you play this week?",
+            post_title: "What did you play this week? (" + (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear() + ")",
             post_description: "This is an automated weekly post to talk about the games you played last week."
         }
         callback(postData)
@@ -34,14 +34,14 @@ function createPost(callback) {
             post_title: "Recommend a Game",
             post_description: "This is an automated weekly post to talk about the game recommendations. Describe the type of game you're looking for, a little bit of what you like, or give recommendations to others."
         }
-        callback(postData)
+        //callback(postData)
     }
     else if (today.getDay() == 4) { // Thursday: Game Trade
         postData = {
             post_title: "Game Trade Thursday",
             post_description: "Comment with a list of games your want and/or a list of games you would be open to trade away and add in your location like City/State so anyone interested in a local swap can do that. If you're interested in starting a trade, either reply or DM to figure out the details. Make sure to update the comment after the deal is done."
         }
-        callback(postData)
+        //callback(postData)
     }
     else if (today.getDay() == 5) { // Friday: Kickstarter Discussion
         var options = {
@@ -71,7 +71,7 @@ function createPost(callback) {
             gameListHtml += '</ul>'
             
             postData = {
-                post_title: "Top Kickstarters Ending Soon!",
+                post_title: "Top Kickstarters Ending Soon! (" + (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear() + ")",
                 post_description: "<p>This is an automated weekly post to talk about the games that are ending soon.</p>" + gameListHtml,
                 game_list: finalWeekList.map(e => e.id).join(',')
             }
