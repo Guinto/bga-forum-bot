@@ -18,7 +18,7 @@ function createPost(callback) {
     else if (today.getDay() == 1) { // Monday: What did you play?
         postData = {
             post_title: "What did you play this week? (" + (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear() + ")",
-            post_description: "This is an automated weekly post to talk about the games you played last week."
+            post_description: "(" + (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear() + ") This is an automated weekly post to talk about the games you played last week."
         }
         callback(postData)
     }
@@ -72,7 +72,7 @@ function createPost(callback) {
             
             postData = {
                 post_title: "Top Kickstarters Ending Soon! (" + (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear() + ")",
-                post_description: "<p>This is an automated weekly post to talk about the games that are ending soon.</p>" + gameListHtml,
+                post_description: "<p>This is an automated weekly post (" + (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear() + ") to talk about the games that are ending soon.</p>" + gameListHtml,
                 game_list: finalWeekList.map(e => e.id).join(',')
             }
             callback(postData)
