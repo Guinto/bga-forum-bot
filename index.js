@@ -29,12 +29,24 @@ function createPost(callback) {
         }
         //callback(postData)
     }
-    else if (today.getDay() == 3) { // Wednesday: Game Recommendations
-        postData = {
-            post_title: "Recommend a Game",
-            post_description: "This is an automated weekly post to talk about the game recommendations. Describe the type of game you're looking for, a little bit of what you like, or give recommendations to others."
+    else if (today.getDay() == 3) { // Wednesday: Game of the Week
+        var options = {
+            url: 'https://api.boardgameatlas.com/api/search?name=&limit=100&client_id=' + client_id,
         }
-        //callback(postData)
+        
+        request(options, function (error, response, body) {
+            if (error) console.log(error)
+
+            var json = JSON.parse(body)
+            var game = json.games[Math.floor(Math.random() * 100)];
+
+            var postData = {
+                post_title: "Game of the Week (" + game.name + ")",
+                post_description: `Let's talk about <a href="${game.url}">#${game.name}</a>! Do you like it, own it, play it all the time, dislike, best strategies, or anything related to it?`,
+                game_list: game.id
+            }
+            callback(postData)
+        })
     }
     else if (today.getDay() == 4) { // Thursday: Game Trade
         postData = {
@@ -45,7 +57,7 @@ function createPost(callback) {
     }
     else if (today.getDay() == 5) { // Friday: Kickstarter Discussion
         var options = {
-            url: 'https://www.boardgameatlas.com/api/search?kickstarter=true&limit=10&order_by=percent_funded&gt_goal=5000&client_id=' + client_id,
+            url: 'https://api.boardgameatlas.com/api/search?kickstarter=true&limit=10&order_by=percent_funded&gt_goal=5000&client_id=' + client_id,
         }
         
         request(options, function (error, response, body) {
